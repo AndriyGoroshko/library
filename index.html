@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libertinus+Mono&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#f5f5f5",
+              background: "#1e1e2f",
+              accent: "#c8a96b",
+              "second-backround": "#2c2f3a",
+              hover: "#4c6e91",
+            },
+            fontFamily: {
+              "tt-sans": ["TikTok Sans", "sans-serif"],
+              libertinus: ["Libertinus Mono", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+    <title>LIBRARY</title>
+  </head>
+  <body class="bg-background text-primary">
+    <header
+      class="header flex align-center m-6 font-tt-sans justify-between text-align-center"
+    >
+      <h1 class="heading text-6xl">L I B R A R Y</h1>
+      <a
+        href=""
+        class="button text-4xl bg-second-backround p-5 text-align-center rounded-lg duration-[1s] transition-colors ease-out hover:bg-indigo-500"
+      >
+        Add a book
+      </a>
+    </header>
+    <div class="template">
+      <div class="book"></div>
+    </div>
+  </body>
+</html>
