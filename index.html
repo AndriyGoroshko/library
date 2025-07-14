@@ -31,20 +31,72 @@
     </script>
     <title>LIBRARY</title>
   </head>
-  <body class="bg-background text-primary">
+  <body class="bg-background text-primary min-w-[610px]">
     <header
-      class="header flex align-center m-6 font-tt-sans justify-between text-align-center"
+      class="header flex align-center m-6 font-tt-sans justify-between text-align-center align-center"
     >
       <h1 class="heading text-6xl">L I B R A R Y</h1>
       <a
-        href=""
-        class="button text-4xl bg-second-backround p-5 text-align-center rounded-lg duration-[1s] transition-colors ease-out hover:bg-indigo-500"
+        id="open-form-btn"
+        class="button text-4xl bg-second-backround p-5 text-align-center rounded-lg duration-[1s] transition-colors ease-out hover:bg-hover"
       >
         Add a book
       </a>
     </header>
     <div class="template">
-      <div class="book"></div>
+      <div
+        id="book-container"
+        class="font-libertinus flex gap-10 m-4 flex flex-wrap justify-center"
+      ></div>
     </div>
+    <div
+      id="form-container"
+      class="form-container bg-second-backround rounded-xl p-5 w-[60%] border-2 leading-[2] fixed"
+    >
+      <form id="form">
+        <div>
+          <label for="book-title">Book title:</label>
+          <input
+            type="text"
+            id="book-title"
+            name="book-title"
+            placeholder="New title"
+            class="mb-3"
+          />
+        </div>
+        <div>
+          <label for="book-author">Book author:</label>
+          <input
+            type="text"
+            id="book-author"
+            name="book-author"
+            placeholder="New author"
+            class="mb-3"
+          />
+        </div>
+        <div>
+          <label for="book-pages">Book pages:</label>
+          <input
+            type="text"
+            id="book-pages"
+            name="book-pages"
+            placeholder="Number of pages"
+            class="mb-3"
+          />
+        </div>
+        <div>
+          <label for="finished">Finished?</label>
+          <input type="checkbox" id="finished" name="finished" />
+          <div>
+            <button type="reset" class="bg-second-backround">Reset</button>
+          </div>
+          <button type="submit" class="bg-second-backround">Add book</button>
+        </div>
+        <button type="button" id="close-form-btn" class="bg-second-backround">
+          Close
+        </button>
+      </form>
+    </div>
+    <script src="./script.js"></script>
   </body>
 </html>
