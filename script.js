@@ -79,7 +79,7 @@ function displayBooks() {
     const bookDiv = document.createElement("div");
     bookDiv.classList.add("book");
     bookDiv.className =
-      "bg-second-backround leading-[2] p-5 shadow-lg rounded-xl p-4 w-64 transition-transform hover:scale-105 ease duration-600";
+      "flex flex-col justify-between bg-second-backround leading-[2] p-5 shadow-lg rounded-xl p-4 w-64 transition-transform hover:scale-105 ease duration-600 font-libertinus";
     const title = document.createElement("h3");
     title.textContent = book.name;
     title.className =
@@ -97,25 +97,74 @@ function displayBooks() {
     bookDiv.appendChild(author);
     bookDiv.appendChild(pages);
     bookDiv.appendChild(status);
+
+    let readStatus = document.createElement("button");
+    readStatus.textContent = "Read status";
+    readStatus.className =
+      "mt-4 bg-second-background hover:bg-hover text-primary px-3 py-1 rounded-lg w-full transition-all duration-300 border-2";
+    readStatus.addEventListener("click", () => {
+      toggleReadStatus(book.id);
+    });
+    bookDiv.appendChild(readStatus);
+
+    let removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.className =
+      "mt-4 bg-orange-600 hover:bg-red-700 text-primary px-3 py-1 rounded-lg w-full transition-all duration-300 border-2";
+    removeBtn.addEventListener("click", () => {
+      removeBook(book.id);
+    });
+    bookDiv.appendChild(removeBtn);
+
     container.appendChild(bookDiv);
   });
 }
 const openBtn = document.getElementById("open-form-btn");
 const closeBtn = document.getElementById("close-form-btn");
 const formContainer = document.getElementById("form-container");
+const shadowContainer = document.getElementById("shadow-container");
 const form = document.getElementById("form");
 
 openBtn.addEventListener("click", () => {
   formContainer.classList.remove("hidden");
+  shadowContainer.classList.remove("hidden");
 });
 
 closeBtn.addEventListener("click", () => {
   formContainer.classList.add("hidden");
+  shadowContainer.classList.add("hidden");
 });
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log("Form submitted!");
-  formContainer.classList.add("hidden"); // optionally close after submit
+  addBook();
+  formContainer.classList.add("hidden");
 });
+
+function addBook() {
+  const title = document.getElementById("book-title").value;
+  const author = document.getElementById("book-author").value;
+  const pages = document.getElementById("book-pages").value;
+  const read = document.getElementById("finished").checked;
+
+  addBookToLibrary(author, title, pages, read);
+  displayBooks();
+}
+
+function removeBook(id) {
+  let index = myLibrary.findIndex((book) => book.id === id);
+  if (index !== -1) {
+    myLibrary.splice(index, 1);
+    displayBooks();
+  }
+}
+
+function toggleReadStatus(id) {
+  let book = myLibrary.find((book) => book.id === id);
+  if (book) {
+    book.read = !book.read;
+    displayBooks();
+  }
+}
+
 displayBooks();

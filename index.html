@@ -31,18 +31,22 @@
     </script>
     <title>LIBRARY</title>
   </head>
-  <body class="bg-background text-primary min-w-[610px]">
+  <body class="bg-background text-primary min-w-[830px]">
     <header
       class="header flex align-center m-6 font-tt-sans justify-between text-align-center align-center"
     >
       <h1 class="heading text-6xl">L I B R A R Y</h1>
       <a
         id="open-form-btn"
-        class="button text-4xl bg-second-backround p-5 text-align-center rounded-lg duration-[1s] transition-colors ease-out hover:bg-hover"
+        class="button text-4xl bg-second-backround p-5 text-align-center rounded-lg duration-[1s] transition-colors ease-out hover:bg-hover border-2"
       >
         Add a book
       </a>
     </header>
+    <div
+      id="shadow-container"
+      class="hidden fixed inset-0 bg-black bg-opacity-50 z-10"
+    ></div>
     <div class="template">
       <div
         id="book-container"
@@ -51,7 +55,7 @@
     </div>
     <div
       id="form-container"
-      class="form-container bg-second-backround rounded-xl p-5 w-[60%] border-2 leading-[2] fixed"
+      class="form-container hidden bg-second-backround rounded-xl p-5 w-[40%] border-2 leading-[2] fixed top-1/3 left-1/2 translate-x-[-50%] translate-y-[-50%] z-20"
     >
       <form id="form">
         <div>
@@ -61,7 +65,7 @@
             id="book-title"
             name="book-title"
             placeholder="New title"
-            class="mb-3"
+            class="mb-3 text-gray-950"
           />
         </div>
         <div>
@@ -71,7 +75,7 @@
             id="book-author"
             name="book-author"
             placeholder="New author"
-            class="mb-3"
+            class="mb-3 text-gray-950"
           />
         </div>
         <div>
@@ -81,20 +85,36 @@
             id="book-pages"
             name="book-pages"
             placeholder="Number of pages"
-            class="mb-3"
+            class="mb-3 text-gray-950"
           />
         </div>
-        <div>
-          <label for="finished">Finished?</label>
-          <input type="checkbox" id="finished" name="finished" />
+        <div class="flex justify-between">
           <div>
-            <button type="reset" class="bg-second-backround">Reset</button>
+            <label for="finished">Finished?</label>
+            <input type="checkbox" id="finished" name="finished" />
           </div>
-          <button type="submit" class="bg-second-backround">Add book</button>
+          <div>
+            <button
+              type="reset"
+              class="text-gray-950 bg-accent rounded-lg px-1 mr-1 duration-[0.6s] transition-colors ease-out hover:bg-hover hover:text-primary"
+            >
+              Reset
+            </button>
+            <button
+              type="submit"
+              class="text-gray-950 bg-accent rounded-lg px-1 mr-1 duration-[0.6s] transition-colors ease-out hover:bg-hover hover:text-primary"
+            >
+              Add book
+            </button>
+            <button
+              type="button"
+              id="close-form-btn"
+              class="text-gray-950 bg-accent rounded-lg px-1 mr-1 duration-[0.6s] transition-colors ease-out hover:bg-hover hover:text-primary"
+            >
+              Close
+            </button>
+          </div>
         </div>
-        <button type="button" id="close-form-btn" class="bg-second-backround">
-          Close
-        </button>
       </form>
     </div>
     <script src="./script.js"></script>
